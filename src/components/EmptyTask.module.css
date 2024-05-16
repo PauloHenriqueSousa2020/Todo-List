@@ -1,0 +1,11 @@
+.emptyTasks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.emptyTasks img {
+  margin-bottom: 1rem;
+}

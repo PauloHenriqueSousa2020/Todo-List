@@ -61,3 +61,9 @@ body, input, textarea, button {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--purple);
 } 
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: calc(0px - 1.5rem);
+}
+
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-top: calc(0px - 2.5rem);
+  }
+}
+
+.wrapper input {
+  background: var(--gray-400);
+  border: none;
+  padding: 1rem;
+  color: var(--gray-100);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.wrapper input::placeholder {
+  color: var(--gray-300);
+}
+
+.wrapper button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--blue-dark);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-100);
+  font-weight: 700 !important;
+  padding: 1rem;
+  cursor: pointer;
+
+  transition: background 0.1s;
+}
+
+.wrapper button:hover {
+  background: var(--blue);
+}

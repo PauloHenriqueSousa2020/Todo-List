@@ -1,21 +1,23 @@
 // libs
 import { FormEvent, useState } from "react";
-import { Check, PlusCircle, Trash } from "phosphor-react";
 
 //  components
 import { Header } from "./components/Header";
+import { Form } from "./components/Form";
 
 // styles and assets
-import clipboard from "./assets/clipboard.svg"
 import styles from "./App.module.css";
+import { EmptyTask } from "./components/EmptyTask";
+import { Task } from "./components/Task";
 
-interface Task {
+export interface TaskInterface {
   id: number;
   text: string;
   completed: boolean;
 }
+
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<TaskInterface[]>([]);
   const [text, setText] = useState('');
 
   function handleCreateNewTask(e: FormEvent<HTMLFormElement>) {
@@ -30,7 +32,11 @@ function App() {
     setText("")
   }
 
-  function handleCompleteTask(task: Task) {
+  function handleChangeText(e: React.ChangeEvent<HTMLInputElement>) {
+    setText(e.target.value)
+  }
+
+  function handleCompleteTask(task: TaskInterface) {
     const filteredTask = tasks.map(taskItem => {
       if (taskItem.id === task.id) {
         return { ...task, completed: !task.completed }
@@ -42,7 +48,7 @@ function App() {
     setTasks(filteredTask);
   }
 
-  function handleRemoveTask(task: Task) {
+  function handleRemoveTask(task: TaskInterface) {
     const filteredTask = tasks.filter(taskItem => taskItem.id !== task.id);
 
     setTasks(filteredTask);
@@ -54,18 +60,12 @@ function App() {
     <>
       <Header />
       <div className={styles.container}>
-        <form onSubmit={handleCreateNewTask} className={styles.wrapper}>
-          <input
-            type="text"
-            placeholder="Adicione uma nova tarefa"
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-          />
-          <button
-            type="submit">
-            Criar <PlusCircle size={20} />
-          </button>
-        </form>
+        <Form
+          handleCreateNewTask={handleCreateNewTask}
+          text={text}
+          handleChangeText={handleChangeText}
+        />
+
         <div className={styles.content}>
           <div className={styles.tasksContent}>
             <label className={styles.createdTasks}>
@@ -81,29 +81,16 @@ function App() {
           {tasks.length > 0 ? (
             <div className={styles.taskContainer}>
               {tasks.map(task => (
-                <div className={styles.task} key={task.id}>
-                  <div className={styles.taskWrapper}>
-                    <label htmlFor="checkbox" onClick={() => handleCompleteTask(task)}>
-                      <input readOnly type="checkbox" />
-                      <span className={task.completed ? `${styles.completedTaskCheckbox}` : `${styles.taskCheckbox}`}>
-                        {task.completed && <Check />}
-                      </span>
-                    </label>
-
-                    <p className={`${styles.taskText} ${task.completed ? `${styles.completedTaskText}` : ''}`}>{task.text}</p>
-                  </div>
-                  <button onClick={() => handleRemoveTask(task)} className={styles.removeTask}>
-                    <Trash size={20} />
-                  </button>
-                </div>
+                <Task
+                  key={task.id}
+                  task={task}
+                  handleCompleteTask={handleCompleteTask}
+                  handleRemoveTask={handleRemoveTask}
+                />
               ))}
             </div>
           ) : (
-            <div className={styles.emptyTasks}>
-              <img src={clipboard} />
-              <strong>Você ainda não tem tarefas cadastradas</strong>
-              <span>Crie tarefas e organize seus itens a fazer</span>
-            </div>
+            <EmptyTask />
           )}
         </div>
       </div>

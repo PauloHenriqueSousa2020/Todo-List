@@ -1,30 +1,35 @@
+<!--ToDo List-->
+
 # React + TypeScript + Vite
+<h1 align="center" text> ToDo List </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+<h2 align="center"> Desenvolvida com as tecnologias 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <img align="center" alt="html5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img align="center" alt="css" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img align="center" alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img align="center" alt="ts" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
 
-## Expanding the ESLint configuration
+</h2>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h3> Desktop </h3>
+<img alt="Aplicação Desktop" title="" src="/src/assets/desktop_empty.png">
+<img alt="Aplicação Desktop" title="" src="/src/assets/desktop_filled.png">
 
-- Configure the top-level `parserOptions` property like this:
+<h3> Mobile </h3>
+<img alt="Aplicação Mobile" title="" src="/src/assets/mobile_empty.png">
+<img alt="Aplicação Mobile" title="" src="/src/assets/mobile_filled.png">
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<h3> Para utilizar: </h3>
+<p> Faça o download do projeto no GitHub <br/>
+<br/>Execute <code>npm install</code> na pasta <b>do projeto</b>, para instalar as dependências.<br/>
+<br/>Execute <code>npm run dev</code> ou <code>yarn dev</code> na pasta para rodar o servidor na porta localhost:3000<br/>
+
+<h3> Instrutor: </h3> 
+<a href="https://github.com/diego3g"> Diego Fernandes </a> - CTO Rocketseat
+
+<h3> Licença </h3>
+Este projeto está sobre a licença <a href="https://github.com/PauloHenriqueSousa2020/be-the-hero/blob/master/LICENSE.md"> MIT </a>
+

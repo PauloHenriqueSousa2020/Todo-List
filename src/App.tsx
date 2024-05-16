@@ -37,15 +37,8 @@ function App() {
   }
 
   function handleCompleteTask(task: TaskInterface) {
-    const filteredTask = tasks.map(taskItem => {
-      if (taskItem.id === task.id) {
-        return { ...task, completed: !task.completed }
-      }
 
-      return taskItem
-    });
-
-    setTasks(filteredTask);
+    setTasks(state => [...state.filter(taskItem => taskItem.id !== task.id), {...task, completed: !task.completed}]);
   }
 
   function handleRemoveTask(task: TaskInterface) {
